@@ -31,5 +31,6 @@ function getHumanChoice() {
         return getHumanChoice();
     }
 }
+humanChoice = getHumanChoice();
 
-getHumanChoice();
+console.log(humanChoice);
