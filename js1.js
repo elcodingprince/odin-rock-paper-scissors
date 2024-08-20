@@ -28,6 +28,7 @@ function getHumanChoice() {
         return humanChoice; 
     } else {
         alert("Invalid choice. Please choose 'rock', 'paper', or 'scissors'.")
+        return getHumanChoice();
     }
 }
 
