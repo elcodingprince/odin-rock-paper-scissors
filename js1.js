@@ -18,4 +18,17 @@ function getComputerChoice() {
         return 'scissors'
     }
 }
-console.log(getComputerChoice());
+
+// function called getHumanChoice that returns 
+// one of the valid humansinput 
+
+function getHumanChoice() {
+    let humanChoice = prompt("Rock, Paper, Scissors?");
+    if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
+        return humanChoice; 
+    } else {
+        alert("Invalid choice. Please choose 'rock', 'paper', or 'scissors'.")
+    }
+}
+
+getHumanChoice();
