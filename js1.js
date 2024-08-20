@@ -24,6 +24,8 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let humanChoice = prompt("Rock, Paper, Scissors?");
+    // Convert input to lowercase to make the check case-insensitive
+    humanChoice = humanChoice.toLowerCase();
     if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
         return humanChoice; 
     } else {
