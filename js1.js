@@ -31,9 +31,12 @@ function getHumanChoice() {
         return getHumanChoice();
     }
 }
-humanChoice = getHumanChoice();
-
-console.log(humanChoice);
 
 humanScore = 0;
 computerScore = 0;
+
+function playRound () {
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
+    
+}
