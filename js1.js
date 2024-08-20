@@ -35,8 +35,8 @@ function getHumanChoice() {
 humanScore = 0;
 computerScore = 0;
 
-function playRound () {
+function playRound (humanChoice, computerChoice) {
     let humanChoice = getHumanChoice();
     let computerChoice = getComputerChoice();
-    
+
 }
