@@ -1,4 +1,4 @@
-console.log("Hello World!")
+
 
 /* a function named getComputerChoice that 
 randomly returnes 'rock', 'paper', or 'scissors' 
@@ -64,8 +64,9 @@ function playRound (humanChoice, computerChoice) {
  let round = 0;
 function playGame() {
     round++
-    console.log(round)
+    console.log("Round " + round)
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
 }
+playGame();
