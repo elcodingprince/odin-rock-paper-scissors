@@ -41,7 +41,9 @@ function playRound (humanChoice, computerChoice) {
     console.log("Human Choice:", humanChoice); // For debugging purposes
     console.log("Computer Choice:", computerChoice); // For debugging purposes
     if (humanChoice === computerChoice) {
-        console.log("It's a tie!")
+        console.log("It's a tie! Go Again"); {
+            return humanChoice;
+        }
     } else if ((humanChoice === "rock" && computerChoice === "scissors") || 
                (humanChoice === "paper" && computerChoice === "rock") || 
                (humanChoice === "scissors" && computerChoice === "paper")) {
@@ -58,11 +60,12 @@ function playRound (humanChoice, computerChoice) {
  
 // call playround function
  // repeat 5 times
- //
+ // count rounds 
+ let round = 0;
 function playGame() {
+    round++
+    console.log(round)
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
 }
-
-playGame();
