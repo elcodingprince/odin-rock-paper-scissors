@@ -55,18 +55,14 @@ function playRound (humanChoice, computerChoice) {
     console.log("Human Score:", humanScore);
     console.log("Computer Score:", computerScore);
 }
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
  
 // call playround function
  // repeat 5 times
  //
 function playGame() {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
-    playRound(humanSelection, computerSelection);
-    playRound(humanSelection, computerSelection);
-    playRound(humanSelection, computerSelection);
-    playRound(humanSelection, computerSelection);
-    
 }
-playGame()
+
+playGame();
