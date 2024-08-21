@@ -90,7 +90,7 @@ function playRound (humanChoice, computerChoice) {
     humanSelection = getHumanChoice();
     computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
-
+// decalres a winner 
 function winner(){
     if (humanScore === computerScore) {
         console.log("Its a Tie!")
@@ -101,7 +101,7 @@ function winner(){
     }
     }
     winner()
-
+// provides final score
     function finalScore() {
         console.log("Final score: " + humanScore + " | " + computerScore)
     }
