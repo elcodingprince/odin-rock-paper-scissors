@@ -34,8 +34,8 @@ function getHumanChoice() {
     }
 }
 
-humanScore = 0;
-computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
 function playRound (humanChoice, computerChoice) {
     console.log("Human Choice:", humanChoice); // For debugging purposes
@@ -70,3 +70,16 @@ function playGame() {
     playRound(humanSelection, computerSelection);
 }
 playGame();
+playGame();
+playGame();
+playGame();
+playGame();
+
+function winner(){
+    if (humanScore > computerScore) {
+        console.log("You WIn!")
+    } else {
+        console.log("You Lose!")
+    }
+}
+winner();
