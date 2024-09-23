@@ -26,6 +26,10 @@ function getComputerChoice() {
 // function called getHumanChoice that returns 
 // one of the valid humansinput 
 
+/*
+
+user can now pick their choice with button 
+
 function getHumanChoice() {
     let humanChoice = prompt("Rock, Paper, Scissors?");
     // Convert input to lowercase to make the check case-insensitive
@@ -37,6 +41,7 @@ function getHumanChoice() {
         return getHumanChoice();
     }
 }
+    */ 
 
 function playRound (humanChoice, computerChoice) {
     console.log("Human Choice:", humanChoice); // For debugging purposes
@@ -65,12 +70,12 @@ function playRound (humanChoice, computerChoice) {
     round++
     console.log("Round " + round)
     }
-/*
+
     rounds();
-    let humanSelection = getHumanChoice();
+    let humanSelection = '';
     let computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
-
+/*
     rounds();
     humanSelection = getHumanChoice();
     computerSelection = getComputerChoice();
@@ -113,9 +118,7 @@ function winner(){
 
 playGame();
 
-const paper = document.querySelector(".paper");
-const rock = document.querySelector(".rock");
-const scissors = document.querySelector(".scissors");
+
 
 let playerSelections = document.querySelector("#humanSelections");
 
@@ -125,13 +128,25 @@ playerSelections.addEventListener('click', (event) => {
     switch (target.id) {
         case 'rock':
             console.log('rock was clicked');
+            rounds();
+            humanSelection = 'rock';
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
             break;
         case 'paper':
             console.log('paper was clicked');
+            rounds();
+            humanSelection = 'paper';
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
             break;
         case 'scissors': 
             console.log('scissors was clicked');
+            rounds();
+            humanSelection = 'scissors';
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
         break;
     }
 
-})
+});
