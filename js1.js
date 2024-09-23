@@ -65,7 +65,7 @@ function playRound (humanChoice, computerChoice) {
     round++
     console.log("Round " + round)
     }
-
+/*
     rounds();
     let humanSelection = getHumanChoice();
     let computerSelection = getComputerChoice();
@@ -90,6 +90,8 @@ function playRound (humanChoice, computerChoice) {
     humanSelection = getHumanChoice();
     computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
+
+*/ 
 // decalres a winner 
 function winner(){
     if (humanScore === computerScore) {
