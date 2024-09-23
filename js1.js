@@ -112,3 +112,7 @@ function winner(){
 }
 
 playGame();
+
+const paper = document.querySelector(".paper");
+const rock = document.querySelector(".rock");
+const scissors = document.querySelector(".scissors");
