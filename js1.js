@@ -124,13 +124,14 @@ playerSelections.addEventListener('click', (event) => {
 
     switch (target.id) {
         case 'rock':
-            ;
-        
+            console.log('rock was clicked');
+            break;
         case 'paper':
-            ;
-
+            console.log('paper was clicked');
+            break;
         case 'scissors': 
-        ;
+            console.log('scissors was clicked');
+        break;
     }
 
 })
