@@ -116,3 +116,21 @@ playGame();
 const paper = document.querySelector(".paper");
 const rock = document.querySelector(".rock");
 const scissors = document.querySelector(".scissors");
+
+let playerSelections = document.querySelector("#humanSelections");
+
+playerSelections.addEventListener('click', (event) => {
+    let target = event.target;
+
+    switch (target.id) {
+        case 'rock':
+            ;
+        
+        case 'paper':
+            ;
+
+        case 'scissors': 
+        ;
+    }
+
+})
