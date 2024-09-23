@@ -97,24 +97,6 @@ function playRound (humanChoice, computerChoice) {
     playRound(humanSelection, computerSelection);
 
 */ 
-// decalres a winner 
-function winner(){
-    if (humanScore === computerScore) {
-        console.log("Its a Tie!")
-    } else if (humanScore > computerScore) {
-        console.log("You WIn!")
-    } else {
-        console.log("You Lose!")
-    }
-    }
-    winner()
-// provides final score
-    function finalScore() {
-        console.log("Final score: " + humanScore + " | " + computerScore)
-    }
-
-    finalScore()
-}
 
 let playerSelections = document.querySelector("#humanSelections");
 
@@ -146,6 +128,28 @@ playerSelections.addEventListener('click', (event) => {
     }
 
 });
+
+// decalres a winner 
+function winner(){
+    if (humanScore === computerScore) {
+        console.log("Its a Tie!")
+    } else if (humanScore > computerScore) {
+        console.log("You WIn!")
+    } else {
+        console.log("You Lose!")
+    }
+    }
+    winner()
+// provides final score
+    function finalScore() {
+        console.log("Final score: " + humanScore + " | " + computerScore)
+    }
+
+    finalScore()
+
+
+}
+
 
 playGame();
 
