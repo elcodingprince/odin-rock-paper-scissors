@@ -116,10 +116,6 @@ function winner(){
     finalScore()
 }
 
-playGame();
-
-
-
 let playerSelections = document.querySelector("#humanSelections");
 
 playerSelections.addEventListener('click', (event) => {
@@ -150,3 +146,8 @@ playerSelections.addEventListener('click', (event) => {
     }
 
 });
+
+playGame();
+
+
+
