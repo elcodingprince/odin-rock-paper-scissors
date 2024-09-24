@@ -7,6 +7,16 @@ let humanScore = 0;
 let computerScore = 0;
 let round = 0;
 
+const container = document.querySelector("#container");
+
+let roundCounter = document.createElement("div");
+roundCounter.classList.add("roundCounter");
+roundCounter.textContent = "Round " + round; 
+container.appendChild(roundCounter);
+
+
+
+
 
 // a function named getComputerChoice that 
 // randomly returnes 'rock', 'paper', or 'scissors' 
@@ -46,30 +56,36 @@ function getHumanChoice() {
 }
     */ 
 
-const container = document.querySelector("#container");
+
 
 
 function playRound (humanChoice, computerChoice) {
     console.log("Human Choice:", humanChoice); // For debugging purposes
     console.log("Computer Choice:", computerChoice); // For debugging purposes
-    let results = document.createElement("div");
+
+    let results = document.querySelector(".results");
+    if (!results) {
+        results = document.createElement("div");
+        results.classList.add("results");
+        container.appendChild(results);
+    }
 
     if (humanChoice === computerChoice) {
        
-        results.classList.add("results");
+        
         results.textContent = "It's a tie! Go Again";
         
     } else if ((humanChoice === "rock" && computerChoice === "scissors") || 
                (humanChoice === "paper" && computerChoice === "rock") || 
                (humanChoice === "scissors" && computerChoice === "paper")) {
                 
-                results.classList.add("results");
+                
                 results.textContent = "You Win! " + humanChoice + " beats " + computerChoice + ".";
                
                 humanScore++;
     } else {
                 
-                results.classList.add("results");
+                
                 results.textContent = "You Lose! " + computerChoice + " beats " + humanChoice + ".";
                 
                 computerScore++; 
@@ -78,25 +94,32 @@ function playRound (humanChoice, computerChoice) {
     container.appendChild(results);
 
     // Output the scores after the round
-    let myScore = document.createElement("div");
-    let pcScore = document.createElement("div");
+    let myScore = document.querySelector(".myScore")
+    let pcSCore = document.querySelector(".pcScore")
 
+    if (!myScore) {
+
+    myScore = document.createElement("div");
     myScore.classList.add("myScore");
+    container.appendChild(myScore);
+    }
     myScore.textContent = "Human Score: " + humanScore;
-
+    
+    if (!pcSCore) {
+    pcScore = document.createElement("div");
     pcScore.classList.add("pcScore");
+    container.appendChild(pcScore);
+    }
     pcScore.textContent = "Computer Score: " + computerScore;
 
-    container.appendChild(myScore);
-    container.appendChild(pcScore);
-}
+};
  
 // call playround function
  // repeat 5 times
  // count rounds 
  function rounds() {
     round++
-    console.log("Round " + round)
+    roundCounter.textContent = "Round " + round;
     }
 
     let humanSelection = '';
@@ -155,6 +178,8 @@ playerSelections.addEventListener('click', (event) => {
     }
 
 });
+
+round++
  /* add winner declaration and final score back in once you learn how to implement them in your new code 
 // decalres a winner 
 function winner(){
