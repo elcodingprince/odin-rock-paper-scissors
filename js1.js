@@ -1,15 +1,18 @@
 
 
-/* a function named getComputerChoice that 
-randomly returnes 'rock', 'paper', or 'scissors' 
 
-if number is less than or equal to 0.33 return 'rock'
-else if number is greater than 0.33 and less than or equal to  0.66 return 'paper'
-else if number is greater then 0.66 return 'scissors' */
+
 function playGame() {
 let humanScore = 0;
 let computerScore = 0;
 let round = 0;
+
+
+// a function named getComputerChoice that 
+// randomly returnes 'rock', 'paper', or 'scissors' 
+// if number is less than or equal to 0.33 return 'rock'
+// else if number is greater than 0.33 and less than or equal to  0.66 return 'paper'
+// else if number is greater then 0.66 return 'scissors' */
 
 function getComputerChoice() {
     let randomNumber = Math.random();
@@ -43,12 +46,18 @@ function getHumanChoice() {
 }
     */ 
 
+const content = document.querySelector('#content');
+const results = document.createElement("div");
+
 function playRound (humanChoice, computerChoice) {
     console.log("Human Choice:", humanChoice); // For debugging purposes
     console.log("Computer Choice:", computerChoice); // For debugging purposes
     if (humanChoice === computerChoice) {
-        console.log("It's a tie! Go Again"); {
-        }
+        
+    results.classList.add("results");
+    div.textContent = "It's a tie! Go Again";
+
+    content.appendChild(results);
     } else if ((humanChoice === "rock" && computerChoice === "scissors") || 
                (humanChoice === "paper" && computerChoice === "rock") || 
                (humanChoice === "scissors" && computerChoice === "paper")) {
@@ -71,10 +80,9 @@ function playRound (humanChoice, computerChoice) {
     console.log("Round " + round)
     }
 
-    rounds();
     let humanSelection = '';
     let computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
+
 /*
     rounds();
     humanSelection = getHumanChoice();
@@ -128,7 +136,7 @@ playerSelections.addEventListener('click', (event) => {
     }
 
 });
-
+ /* add winner declaration and final score back in once you learn how to implement them in your new code 
 // decalres a winner 
 function winner(){
     if (humanScore === computerScore) {
@@ -146,7 +154,7 @@ function winner(){
     }
 
     finalScore()
-
+*/
 
 }
 
