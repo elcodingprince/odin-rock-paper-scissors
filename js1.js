@@ -5,7 +5,7 @@
 function playGame() {
 let humanScore = 0;
 let computerScore = 0;
-let round = 0;
+let round = 1;
 
 const container = document.querySelector("#container");
 
@@ -63,6 +63,7 @@ function playRound (humanChoice, computerChoice) {
     console.log("Human Choice:", humanChoice); // For debugging purposes
     console.log("Computer Choice:", computerChoice); // For debugging purposes
 
+    // Check if results div already exists 
     let results = document.querySelector(".results");
     if (!results) {
         results = document.createElement("div");
@@ -73,7 +74,7 @@ function playRound (humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
        
         
-        results.textContent = "It's a tie! Go Again";
+        results.textContent = "It's a tie! You both chose " + computerChoice + ". " + "Go Again.";
         
     } else if ((humanChoice === "rock" && computerChoice === "scissors") || 
                (humanChoice === "paper" && computerChoice === "rock") || 
@@ -91,11 +92,9 @@ function playRound (humanChoice, computerChoice) {
                 computerScore++; 
     }
 
-    container.appendChild(results);
-
     // Output the scores after the round
     let myScore = document.querySelector(".myScore")
-    let pcSCore = document.querySelector(".pcScore")
+    let pcScore = document.querySelector(".pcScore")
 
     if (!myScore) {
 
@@ -105,7 +104,7 @@ function playRound (humanChoice, computerChoice) {
     }
     myScore.textContent = "Human Score: " + humanScore;
     
-    if (!pcSCore) {
+    if (!pcScore) {
     pcScore = document.createElement("div");
     pcScore.classList.add("pcScore");
     container.appendChild(pcScore);
@@ -122,8 +121,7 @@ function playRound (humanChoice, computerChoice) {
     roundCounter.textContent = "Round " + round;
     }
 
-    let humanSelection = '';
-    let computerSelection = getComputerChoice();
+    
 
 /*
     rounds();
@@ -153,33 +151,30 @@ let playerSelections = document.querySelector("#humanSelections");
 playerSelections.addEventListener('click', (event) => {
     let target = event.target;
 
+    rounds();
+
+    let humanSelection = '';
+    let computerSelection = getComputerChoice();
+
     switch (target.id) {
         case 'rock':
             console.log('rock was clicked');
-            rounds();
-            humanSelection = 'rock';
-            computerSelection = getComputerChoice();
-            playRound(humanSelection, computerSelection);
+            humanSelection = 'rock';        
             break;
         case 'paper':
             console.log('paper was clicked');
-            rounds();
-            humanSelection = 'paper';
-            computerSelection = getComputerChoice();
-            playRound(humanSelection, computerSelection);
+            humanSelection = 'paper';  
             break;
         case 'scissors': 
             console.log('scissors was clicked');
-            rounds();
             humanSelection = 'scissors';
-            computerSelection = getComputerChoice();
-            playRound(humanSelection, computerSelection);
+
         break;
     }
 
+    playRound(humanSelection, computerSelection);
 });
 
-round++
  /* add winner declaration and final score back in once you learn how to implement them in your new code 
 // decalres a winner 
 function winner(){
