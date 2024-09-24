@@ -46,30 +46,49 @@ function getHumanChoice() {
 }
     */ 
 
-const content = document.querySelector('#content');
-const results = document.createElement("div");
+const container = document.querySelector("#container");
+
 
 function playRound (humanChoice, computerChoice) {
     console.log("Human Choice:", humanChoice); // For debugging purposes
     console.log("Computer Choice:", computerChoice); // For debugging purposes
-    if (humanChoice === computerChoice) {
-        
-    results.classList.add("results");
-    div.textContent = "It's a tie! Go Again";
+    let results = document.createElement("div");
 
-    content.appendChild(results);
+    if (humanChoice === computerChoice) {
+       
+        results.classList.add("results");
+        results.textContent = "It's a tie! Go Again";
+        
     } else if ((humanChoice === "rock" && computerChoice === "scissors") || 
                (humanChoice === "paper" && computerChoice === "rock") || 
                (humanChoice === "scissors" && computerChoice === "paper")) {
-        console.log("You Win! " + humanChoice + " beats " + computerChoice + ".")
-        humanScore++;
+                
+                results.classList.add("results");
+                results.textContent = "You Win! " + humanChoice + " beats " + computerChoice + ".";
+               
+                humanScore++;
     } else {
-        console.log("You Lose! " + computerChoice + " beats " + humanChoice + ".")
-        computerScore++; 
+                
+                results.classList.add("results");
+                results.textContent = "You Lose! " + computerChoice + " beats " + humanChoice + ".";
+                
+                computerScore++; 
     }
+
+    container.appendChild(results);
+
     // Output the scores after the round
-    console.log("Human Score:", humanScore);
-    console.log("Computer Score:", computerScore);
+    let myScore = document.createElement("div");
+    let pcScore = document.createElement("div");
+
+    myScore.classList.add("myScore");
+    myScore.textContent = "Human Score: " + humanScore;
+
+    pcScore.classList.add("pcScore");
+    pcScore.textContent = "Computer Score: " + computerScore;
+
+    container.appendChild(myScore);
+    container.appendChild(pcScore);
 }
  
 // call playround function
