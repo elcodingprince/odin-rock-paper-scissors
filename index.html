@@ -7,25 +7,40 @@
     <script src="js1.js" defer></script>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
+            
             justify-content: center;
             align-items: center;
             gap: 10px;
-            text-align: center;
         }
         #humanSelections {
             
             justify-content: center;
         }
         .scoreContainer {
-            background-color: aliceblue;
-            border: 1px, solid, grey;
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(145, 13, 13);
+            border: 1px, solid, rgb(255, 22, 22);
+            color: white;
+        }
+        .myScoreText {
+            font-family: monospace;
+            font-size: 16px;
         }
 
-        .scoreTextContainer {
-            display: flex;
+        .pcScoreText {
+            font-family: monospace;
+            font-size: 16px;
+        }
+
+        .myScore {
+            font-family: monospace;
+            font-size: 44px;
+        }
+        .pcScore {
+            font-family: monospace;
+            font-size: 44px;
         }
     </style>
 </head>
