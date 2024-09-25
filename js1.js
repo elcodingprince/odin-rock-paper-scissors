@@ -92,54 +92,71 @@ function playRound (humanChoice, computerChoice) {
                 computerScore++; 
     }
 
+    
+
     // Output the scores after the round
     let scoreContainer = document.querySelector(".scoreContainer");
     
-    
+    let myScoreContainer = document.querySelector(".myScoreContainer");
     let myScoreText = document.querySelector(".myScoreText");
-    let pcScoreText = document.querySelector(".pcScoreText");
     let myScore = document.querySelector(".myScore");
+
+    let pcScoreContainer = document.querySelector(".pcScoreContainer");
+    let pcScoreText = document.querySelector(".pcScoreText");
     let pcScore = document.querySelector(".pcScore");
 
     if (!scoreContainer) {
         scoreContainer = document.createElement("div");
         scoreContainer.classList.add("scoreContainer");
     }
+
+    if (!myScoreContainer) {
+        myScoreContainer = document.createElement("div");
+        myScoreContainer.classList.add("myScoreContainer");
+    }
+    
     
     if (!myScoreText) {
 
-    myScoreText = document.createElement("div");
-    myScoreText.classList.add("myScoreText")
-    scoreContainer.appendChild(myScoreText);
-    }
-    myScoreText.textContent = "Human Score ";
+        myScoreText = document.createElement("div");
+        myScoreText.classList.add("myScoreText")
+        myScoreContainer.appendChild(myScoreText);
+        }
+        myScoreText.textContent = "Human Score ";
 
     if (!myScore) {
     
-     
         myScore = document.createElement("div");
         myScore.classList.add("myScore");
-        scoreContainer.appendChild(myScore);
+        myScoreContainer.appendChild(myScore);
         }
-        
+            
         myScore.textContent = humanScore;
-    
+
+    if (!pcScoreContainer) {
+        pcScoreContainer = document.createElement("div");
+        pcScoreContainer.classList.add("pcScoreContainer");
+    }
     if (!pcScoreText) {
     
-    pcScoreText = document.createElement("div");
-    pcScoreText.classList.add("pcScoreText");
-    scoreContainer.appendChild(pcScoreText)
-    }
-    pcScoreText.textContent = "Computer Score ";
-    
+        pcScoreText = document.createElement("div");
+        pcScoreText.classList.add("pcScoreText");
+        pcScoreContainer.appendChild(pcScoreText)
+        }
+        pcScoreText.textContent = "Computer Score ";
+        
     if (!pcScore) {
-    pcScore = document.createElement("div");
-    pcScore.classList.add("pcScore");
-    scoreContainer.appendChild(pcScore);
-    }
-    pcScore.textContent = computerScore;
-    container.appendChild(scoreContainer);
-    
+        pcScore = document.createElement("div");
+        pcScore.classList.add("pcScore");
+        pcScoreContainer.appendChild(pcScore);
+        }
+        pcScore.textContent = computerScore;
+
+        scoreContainer.appendChild(myScoreContainer);
+        scoreContainer.appendChild(pcScoreContainer);
+
+        container.appendChild(scoreContainer);
+        
 
     
 };
