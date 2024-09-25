@@ -93,25 +93,58 @@ function playRound (humanChoice, computerChoice) {
     }
 
     // Output the scores after the round
-    let myScore = document.querySelector(".myScore")
-    let pcScore = document.querySelector(".pcScore")
+    let scoreContainer = document.querySelector(".scoreContainer");
+    
+    
+    let myScoreText = document.querySelector(".myScoreText");
+    let pcScoreText = document.querySelector(".pcScoreText");
+    let myScore = document.querySelector(".myScore");
+    let pcScore = document.querySelector(".pcScore");
+
+    if (!scoreContainer) {
+        scoreContainer = document.createElement("div");
+        scoreContainer.classList.add("scoreContainer");
+    }
+    
+    if (!myScoreText) {
+
+    myScoreText = document.createElement("div");
+    myScoreText.classList.add("myScoreText")
+    scoreContainer.appendChild(myScoreText);
+    }
+    myScoreText.textContent = "Human Score ";
 
     if (!myScore) {
-
-    myScore = document.createElement("div");
-    myScore.classList.add("myScore");
-    container.appendChild(myScore);
+    
+     
+        myScore = document.createElement("div");
+        myScore.classList.add("myScore");
+        scoreContainer.appendChild(myScore);
+        }
+        
+        myScore.textContent = humanScore;
+    
+    if (!pcScoreText) {
+    
+    pcScoreText = document.createElement("div");
+    pcScoreText.classList.add("pcScoreText");
+    scoreContainer.appendChild(pcScoreText)
     }
-    myScore.textContent = "Human Score: " + humanScore;
+    pcScoreText.textContent = "Computer Score ";
     
     if (!pcScore) {
     pcScore = document.createElement("div");
     pcScore.classList.add("pcScore");
-    container.appendChild(pcScore);
+    scoreContainer.appendChild(pcScore);
     }
-    pcScore.textContent = "Computer Score: " + computerScore;
+    pcScore.textContent = computerScore;
+    container.appendChild(scoreContainer);
+    
 
+    
 };
+
+
  
 // call playround function
  // repeat 5 times
@@ -175,7 +208,7 @@ playerSelections.addEventListener('click', (event) => {
     playRound(humanSelection, computerSelection);
 });
 
- /* add winner declaration and final score back in once you learn how to implement them in your new code 
+ // add winner declaration and final score back in once you learn how to implement them in your new code 
 // decalres a winner 
 function winner(){
     if (humanScore === computerScore) {
@@ -193,7 +226,7 @@ function winner(){
     }
 
     finalScore()
-*/
+
 
 }
 
