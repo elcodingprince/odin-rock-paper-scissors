@@ -1,8 +1,8 @@
+const startGame = document.querySelector(".startGame");
+
+function playGame(event) {
 
 
-
-
-function playGame() {
 let humanScore = 0;
 let computerScore = 0;
 let round = 1;
@@ -157,8 +157,6 @@ function playRound (humanChoice, computerChoice) {
 
         container.appendChild(scoreContainer);
         
-
-    
 };
 
 
@@ -244,11 +242,14 @@ function winner(){
 
     finalScore()
 
-
+    startGame.disabled = true; 
+    startGame.removeEventListener("click", playGame);
 }
 
 
-playGame();
+
+
+startGame.addEventListener("click", playGame);
 
 
 

@@ -7,22 +7,39 @@
     <script src="js1.js" defer></script>
     <style>
         body {
-            
-            justify-content: center;
-            align-items: center;
             gap: 10px;
         }
-        #humanSelections {
-            
-            justify-content: center;
+        .container0 {
+           background-color: rgba(0, 0, 0, 0.365);
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+        }
+        .humanSelections {
+            display: flex;
+            align-items: center;
+
         }
         .scoreContainer {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            background-color: rgb(145, 13, 13);
+            
             border: 1px, solid, rgb(255, 22, 22);
             color: white;
+            max-width: fit-content;
+            gap: 100px;
+        }
+        .myScoreContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        .pcScoreContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .myScoreText {
             font-family: monospace;
@@ -45,14 +62,19 @@
     </style>
 </head>
 <body>
-<h3>Rock, Paper Scissors</h3>
-<div id="humanSelections">
-    <button id="paper">Paper</button>
-    <button id="rock">Rock</button>
-    <button id="scissors">Scissors</button>
-    
-</div>
 
-<div id="container"></div>
+<div class="container0">
+    <h3>Rock, Paper Scissors</h3>
+    <button class="startGame">Start Game!</button>
+    <div id="humanSelections">
+        <button id="paper">Paper</button>
+        <button id="rock">Rock</button>
+        <button id="scissors">Scissors</button>
+        
+    </div>
+
+
+    <div id="container"></div>
+</div>
 </body>
 </html>
