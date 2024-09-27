@@ -71,24 +71,17 @@ function playRound (humanChoice, computerChoice) {
         container.appendChild(results);
     }
 
-    if (humanChoice === computerChoice) {
-       
-        
+    if (humanChoice === computerChoice) { 
         results.textContent = "It's a tie! You both chose " + computerChoice + ". " + "Go Again.";
         
     } else if ((humanChoice === "rock" && computerChoice === "scissors") || 
                (humanChoice === "paper" && computerChoice === "rock") || 
-               (humanChoice === "scissors" && computerChoice === "paper")) {
-                
-                
+               (humanChoice === "scissors" && computerChoice === "paper")
+            ) {
                 results.textContent = "You Win! " + humanChoice + " beats " + computerChoice + ".";
-               
                 humanScore++;
     } else {
-                
-                
-                results.textContent = "You Lose! " + computerChoice + " beats " + humanChoice + ".";
-                
+                results.textContent = "You Lose! " + computerChoice + " beats " + humanChoice + "."; 
                 computerScore++; 
     }
 
