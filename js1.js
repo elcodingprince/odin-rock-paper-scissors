@@ -1,19 +1,31 @@
 const startGame = document.querySelector(".startGame");
 
-function playGame(event) {
-
-
 let humanScore = 0;
 let computerScore = 0;
 let round = 1;
+let results;
 
-const container = document.querySelector("#container");
+function playGame(event) {
+    humanScore = 0;
+    computerScore = 0;
+    round = 1;
 
-let roundCounter = document.createElement("div");
-roundCounter.classList.add("roundCounter");
-roundCounter.textContent = "Round " + round; 
-container.appendChild(roundCounter);
+    const container = document.querySelector("#container");
 
+    container.innerHTML = '';
+
+    let roundCounter = document.createElement("div");
+    roundCounter.classList.add("roundCounter");
+    roundCounter.textContent = "Round " + round; 
+    container.appendChild(roundCounter);
+
+    results = document.createElement("div");
+    results.classList.add("results");
+    container.appendChild(results);
+
+    updateScores(container);
+    startGame.disabled = true;
+}
 
 
 
@@ -26,13 +38,12 @@ container.appendChild(roundCounter);
 
 function getComputerChoice() {
     let randomNumber = Math.random();
-
     if (randomNumber <= 0.33) {
         return 'rock';
-    } else if (randomNumber > 0.33 && randomNumber <= 0.66) {
+    } else if (randomNumber <= 0.66) {
         return 'paper';
     } else {
-        return 'scissors'
+        return 'scissors';
     }
 }
 
@@ -62,14 +73,9 @@ function getHumanChoice() {
 function playRound (humanChoice, computerChoice) {
     console.log("Human Choice:", humanChoice); // For debugging purposes
     console.log("Computer Choice:", computerChoice); // For debugging purposes
+    const roundCounter = container.querySelector(".roundCounter")
 
     // Check if results div already exists 
-    let results = document.querySelector(".results");
-    if (!results) {
-        results = document.createElement("div");
-        results.classList.add("results");
-        container.appendChild(results);
-    }
 
     if (humanChoice === computerChoice) { 
         results.textContent = "It's a tie! You both chose " + computerChoice + ". " + "Go Again.";
@@ -81,12 +87,23 @@ function playRound (humanChoice, computerChoice) {
                 results.textContent = "You Win! " + humanChoice + " beats " + computerChoice + ".";
                 humanScore++;
     } else {
+                
                 results.textContent = "You Lose! " + computerChoice + " beats " + humanChoice + "."; 
                 computerScore++; 
     }
-
     
 
+    updateScores(container); 
+
+    if (humanScore === 5 || computerScore === 5) {
+        declareWinner(results);
+        startGame.disabled = false;
+    } else {
+        roundCounter.textContent = "Round " + (++round);
+    }
+};
+    
+function updateScores(container) {
     // Output the scores after the round
     let scoreContainer = document.querySelector(".scoreContainer");
     
@@ -149,9 +166,17 @@ function playRound (humanChoice, computerChoice) {
         scoreContainer.appendChild(pcScoreContainer);
 
         container.appendChild(scoreContainer);
-        
 };
 
+function declareWinner(results) {
+    if (humanScore > computerScore) {
+        results.textContent += ` You Win the Game! (Final Score: ${humanScore} - ${computerScore})`;
+    } else if (humanScore < computerScore) {
+        results.textContent += ` You Lose the Game! (Final Score: ${humanScore} - ${computerScore})`;
+    } else {
+        results.textContent += ` It's a Tie! (Final Score: ${humanScore} - ${computerScore})`;
+    }
+}
 
  
 // call playround function
@@ -188,11 +213,8 @@ function playRound (humanChoice, computerChoice) {
 */ 
 
 let playerSelections = document.querySelector("#humanSelections");
-
 playerSelections.addEventListener('click', (event) => {
     let target = event.target;
-
-    rounds();
 
     let humanSelection = '';
     let computerSelection = getComputerChoice();
@@ -212,35 +234,11 @@ playerSelections.addEventListener('click', (event) => {
 
         break;
     }
-
-    playRound(humanSelection, computerSelection);
+    if (humanSelection) {
+        const container = document.querySelector("#container");
+        playRound(humanSelection, computerSelection, container);
+    }
 });
-
- // add winner declaration and final score back in once you learn how to implement them in your new code 
-// decalres a winner 
-function winner(){
-    if (humanScore === computerScore) {
-        console.log("Its a Tie!")
-    } else if (humanScore > computerScore) {
-        console.log("You WIn!")
-    } else {
-        console.log("You Lose!")
-    }
-    }
-    winner()
-// provides final score
-    function finalScore() {
-        console.log("Final score: " + humanScore + " | " + computerScore)
-    }
-
-    finalScore()
-
-    startGame.disabled = true; 
-    startGame.removeEventListener("click", playGame);
-}
-
-
-
 
 startGame.addEventListener("click", playGame);
 
